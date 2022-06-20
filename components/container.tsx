@@ -15,7 +15,11 @@ export const PageContainer: React.FunctionComponent<{
         <footer>
             <ul>
                 <li>
-                    <a href="https://github.com/chiptopher/hackernoise">
+                    <a
+                        href="https://github.com/chiptopher/hackernoise"
+                        rel="noreferrer"
+                        target="_blank"
+                    >
                         Source
                     </a>
                 </li>
