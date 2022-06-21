@@ -26,7 +26,7 @@ export const PageNav: React.FunctionComponent<Props> = ({
                     <Link disabled>previous</Link>
                 )}
                 <NextLink href="/" passHref>
-                    <Link>begining</Link>
+                    <Link>beginning</Link>
                 </NextLink>
                 <NextLink href={`?from=${lastComment - 1}`} passHref>
                     <Link>older</Link>
