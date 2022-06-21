@@ -16,6 +16,15 @@ export const PageContainer: React.FunctionComponent<{
             <ul>
                 <li>
                     <a
+                        href="http://news.ycombinator.com"
+                        rel="noreferrer"
+                        target="_blank"
+                    >
+                        Comments sourced organically from Hacker News
+                    </a>
+                </li>
+                <li>
+                    <a
                         href="https://github.com/chiptopher/hackernoise"
                         rel="noreferrer"
                         target="_blank"
@@ -63,6 +72,10 @@ const Container = styled.div`
 
             li:not(:last-child) {
                 margin-bottom: 0.5rem;
+            }
+
+            li:last-child {
+                margin-top: 1rem;
             }
 
             li {
