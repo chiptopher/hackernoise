@@ -3,12 +3,14 @@ import React from 'react';
 import '../styles/globals.scss';
 import type { AppProps } from 'next/app';
 import NextHead from 'next/head';
+import Script from 'next/script';
 import styled from 'styled-components';
 
 const DESCRIPTION = 'Hacker News but none of the context and all the comments.';
 const TITLE = 'Hacker Noise';
 
 function MyApp({ Component, pageProps }: AppProps) {
+    const trackingId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
     return (
         <Container>
             <NextHead>
@@ -46,6 +48,23 @@ function MyApp({ Component, pageProps }: AppProps) {
                 <meta content={TITLE} name="twitter:title" />
                 <meta content={DESCRIPTION} name="twitter:description" />
             </NextHead>
+            {trackingId && (
+                <>
+                    <Script
+                        src={`https://www.googletagmanager.com/gtag/js?id=${trackingId}`}
+                        strategy="afterInteractive"
+                    />
+                    <Script id="google-analytics" strategy="afterInteractive">
+                        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', '${trackingId}');
+        `}
+                    </Script>
+                </>
+            )}
             <Component {...pageProps} />;
         </Container>
     );
